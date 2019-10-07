@@ -181,7 +181,7 @@ public class ultimateCipher : MonoBehaviour {
         submitText.text = "1";
         //Generating random word
         answer = wordList[UnityEngine.Random.Range(0, wordList.Length)].ToUpper();
-        Debug.LogFormat("[Blue Cipher #{0}] Generated Word: {1}", moduleId, answer);
+        Debug.LogFormat("[Indigo Cipher #{0}] Generated Word: {1}", moduleId, answer);
        
         pages = new string[2][];
         pages[0] = new string[3];
@@ -196,14 +196,14 @@ public class ultimateCipher : MonoBehaviour {
     }
     string indigocipher(string word)
     {
-        Debug.LogFormat("[Blue Cipher #{0}] Begin Logic Encryption", moduleId);
+        Debug.LogFormat("[Indigo Cipher #{0}] Begin Logic Encryption", moduleId);
         string encrypt = LogicEnc(word.ToUpper());
         string kw2 = encrypt.Split(' ')[1];
-        Debug.LogFormat("[Blue Cipher #{0}] Begin Condi Encryption", moduleId);
+        Debug.LogFormat("[Indigo Cipher #{0}] Begin Condi Encryption", moduleId);
         encrypt = CondiEnc(encrypt.Split(' ')[0]);
         string kw1 = encrypt.Split(' ')[1];
         encrypt = encrypt.Split(' ')[0];
-        Debug.LogFormat("[Blue Cipher #{0}] Begin Fractionated Morse Encryption", moduleId);
+        Debug.LogFormat("[Indigo Cipher #{0}] Begin Fractionated Morse Encryption", moduleId);
         string kw2enc = FractionatedMorseEnc(kw2.ToUpper(), kw1.ToUpper());
         pages[0][2] = kw1.ToUpper();
         pages[0][1] = kw2enc.ToUpper();
@@ -302,7 +302,7 @@ public class ultimateCipher : MonoBehaviour {
         };
         int logicgate = UnityEngine.Random.Range(0, 8);
         string[] gates = { "AND", "OR", "XOR", "NAND", "NOR", "XNOR", "->", "<-" };
-        Debug.LogFormat("[Green Cipher #{0}] Gate: {1}", moduleId, gates[logicgate]);
+        Debug.LogFormat("[Indigo Cipher #{0}] Gate: {1}", moduleId, gates[logicgate]);
         string kw = "";
         string encrypt = "";
         string overenc = "";
@@ -436,7 +436,7 @@ public class ultimateCipher : MonoBehaviour {
             }
             int numenc = 0;
             int numkw = 0;
-            Debug.LogFormat("[Green Cipher #{0}] {1} + {2} = {3}", moduleId, binenc, binkw, binlet);
+            Debug.LogFormat("[Indigo Cipher #{0}] {1} + {2} = {3}", moduleId, binenc, binkw, binlet);
           
 
             for (int ff = 0; ff < 5; ff++)
@@ -514,11 +514,11 @@ public class ultimateCipher : MonoBehaviour {
                     break;
             }
         }
-        Debug.LogFormat("[Green Cipher #{0}] Logic Encryption Keyword: {1}", moduleId, kw);
-        Debug.LogFormat("[Green Cipher #{0}] Logic Encrypted Word: {1}", moduleId, encrypt);
-        Debug.LogFormat("[Green Cipher #{0}] Binary 1: {1}", moduleId, b1);
-        Debug.LogFormat("[Green Cipher #{0}] Binary 2: {1}", moduleId, b2[0] + "" + b2[1] + "" + b2[2] + "" + b2[3] + "" + b2[4] + "" + b2[5]);
-        Debug.LogFormat("[Green Cipher #{0}] Binary 3: {1}", moduleId, b3);
+        Debug.LogFormat("[Indigo Cipher #{0}] Logic Encryption Keyword: {1}", moduleId, kw);
+        Debug.LogFormat("[Indigo Cipher #{0}] Logic Encrypted Word: {1}", moduleId, encrypt);
+        Debug.LogFormat("[Indigo Cipher #{0}] Binary 1: {1}", moduleId, b1);
+        Debug.LogFormat("[Indigo Cipher #{0}] Binary 2: {1}", moduleId, b2[0] + "" + b2[1] + "" + b2[2] + "" + b2[3] + "" + b2[4] + "" + b2[5]);
+        Debug.LogFormat("[Indigo Cipher #{0}] Binary 3: {1}", moduleId, b3);
         int num1 = 0;
         int num2 = 0;
         int num3 = 0;
@@ -544,14 +544,14 @@ public class ultimateCipher : MonoBehaviour {
     {
         string kw = matrixWordList[UnityEngine.Random.Range(0, matrixWordList.Length)].ToUpper();
         string key = getKey(kw.ToUpper(), "ABCDEFGHIJKLMNOPQRSTUVWXYZ", Bomb.GetPortCount() % 2 == 1);
-        Debug.LogFormat("[Green Cipher #{0}] Key: {1}", moduleId, key);
+        Debug.LogFormat("[Indigo Cipher #{0}] Key: {1}", moduleId, key);
         int offset = Bomb.GetSerialNumberNumbers().Sum();
         string encrypt = "";
         for (int aa = 0; aa < 6; aa++)
         {
-            Debug.LogFormat("[Green Cipher #{0}] Offset: {1}", moduleId, offset);
+            Debug.LogFormat("[Indigo Cipher #{0}] Offset: {1}", moduleId, offset);
             encrypt = encrypt + "" + key[(key.IndexOf(word[aa]) + offset) % 26];
-            Debug.LogFormat("[Green Cipher #{0}] {1} -> {2}", moduleId, word[aa], encrypt[aa]);
+            Debug.LogFormat("[Indigo Cipher #{0}] {1} -> {2}", moduleId, word[aa], encrypt[aa]);
             offset = key.IndexOf(word[aa]) + 1;
         }
         return encrypt + " " + kw;
@@ -559,7 +559,7 @@ public class ultimateCipher : MonoBehaviour {
     string FractionatedMorseEnc(string word, string kw)
     {
         string key = getKey(kw.ToUpper(), "ABCDEFGHIJKLMNOPQRSTUVWXYZ", Bomb.GetPortCount() % 2 == 1);
-        Debug.LogFormat("[Green Cipher #{0}] Key: {1}", moduleId, key);
+        Debug.LogFormat("[Indigo Cipher #{0}] Key: {1}", moduleId, key);
         string[] morse =
         {
             ".-",
@@ -625,7 +625,7 @@ public class ultimateCipher : MonoBehaviour {
         {
             int numalpha = alpha.IndexOf(word[aa]);
             string morword = morse[numalpha];
-            Debug.LogFormat("[Green Cipher #{0}] {1} -> {2}", moduleId, word[aa], morword);
+            Debug.LogFormat("[Indigo Cipher #{0}] {1} -> {2}", moduleId, word[aa], morword);
             for (int bb = 0; bb < morword.Length; bb++)
             {
                 rows[counter] = rows[counter] + "" + morword[bb];
@@ -636,13 +636,13 @@ public class ultimateCipher : MonoBehaviour {
                 rows[counter] = rows[counter] + "x";
                 counter = (counter + 1) % 3;
             }
-            Debug.LogFormat("[Green Cipher #{0}] Morse rows:\n{1}\n{2}\n{3}", moduleId, rows[0], rows[1], rows[2]);
+            Debug.LogFormat("[Indigo Cipher #{0}] Morse rows:\n{1}\n{2}\n{3}", moduleId, rows[0], rows[1], rows[2]);
         }
         if (rows[1].Length != rows[0].Length)
             rows[1] = rows[1] + "x";
         if (rows[2].Length != rows[0].Length)
             rows[2] = rows[2] + "x";
-        Debug.LogFormat("[Green Cipher #{0}] Morse rows:\n{1}\n{2}\n{3}", moduleId, rows[0], rows[1], rows[2]);
+        Debug.LogFormat("[Indigo Cipher #{0}] Morse rows:\n{1}\n{2}\n{3}", moduleId, rows[0], rows[1], rows[2]);
         string encrypt = "";
         for(int bb = 0; bb < rows[0].Length; bb++)
         {
