@@ -636,13 +636,16 @@ public class ultimateCipher : MonoBehaviour {
                 rows[counter] = rows[counter] + "x";
                 counter = (counter + 1) % 3;
             }
-            Debug.LogFormat("[Indigo Cipher #{0}] Morse rows:\n{1}\n{2}\n{3}", moduleId, rows[0], rows[1], rows[2]);
+            
         }
         if (rows[1].Length != rows[0].Length)
             rows[1] = rows[1] + "x";
         if (rows[2].Length != rows[0].Length)
             rows[2] = rows[2] + "x";
-        Debug.LogFormat("[Indigo Cipher #{0}] Morse rows:\n{1}\n{2}\n{3}", moduleId, rows[0], rows[1], rows[2]);
+        Debug.LogFormat("[Indigo Cipher #{0}] Morse rows:", moduleId);
+        Debug.LogFormat("[Indigo Cipher #{0}] {1}", moduleId, rows[0]);
+        Debug.LogFormat("[Indigo Cipher #{0}] {1}", moduleId, rows[1]);
+        Debug.LogFormat("[Indigo Cipher #{0}] {1}", moduleId, rows[2]);
         string encrypt = "";
         for(int bb = 0; bb < rows[0].Length; bb++)
         {
