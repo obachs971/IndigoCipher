@@ -654,6 +654,7 @@ public class ultimateCipher : MonoBehaviour {
             {
                 if(morenc.Equals(morsekey[cc]))
                 {
+                    Debug.LogFormat("[Indigo Cipher #{0}] {1} -> {2}", moduleId, morenc, key[cc]);
                     encrypt = encrypt + "" + key[cc];
                     break;
                 }
