@@ -600,7 +600,7 @@ public class ultimateCipher : MonoBehaviour {
             ".x.",
             ".x-",
             ".xx",
-            "-xx",
+            "-..",
             "-.-",
             "-.x",
             "--.",
