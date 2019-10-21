@@ -727,7 +727,7 @@ public class ultimateCipher : MonoBehaviour {
         }
         else
         {
-            screenTexts[1].fontSize = 35;
+            screenTexts[1].fontSize = 30;
             screenTexts[2].fontSize = 40;
         }
             
